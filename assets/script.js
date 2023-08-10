@@ -1,4 +1,19 @@
-const slides = [
+
+ const arrowLeft = document.querySelector(".arrow_left");
+ const arrowRight = document.querySelector(".arrow_right");
+
+
+ arrowLeft.addEventListener("click", function() {
+	alert('bonjour gauche')
+ });
+
+ arrowRight.addEventListener("click", function() {
+	alert('bonjour droite')
+ });
+
+ const slides =
+
+[
 	{
 		"image":"slide1.jpg",
 		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
@@ -16,3 +31,4 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
