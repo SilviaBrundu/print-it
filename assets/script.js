@@ -35,11 +35,19 @@ const arrowRight = document.querySelector('.arrow_right');
 
 // creation des boutons
 
-function createDots(){
-	let dot = document.createElement('div');
+//function createDots(){
+//	let dot = document.createElement('div');
+//	dot.classList.add('dot');
+//	document.querySelector(".dots").appendChild(dot);
+//}
+
+//createDots();
+
+for (let i = 0; i < slides.length; i ++) {
+	const dot = document.createElement('div');
 	dot.classList.add('dot');
 	document.querySelector(".dots").appendChild(dot);
 }
 
-createDots();
+
 
