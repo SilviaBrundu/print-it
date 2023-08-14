@@ -1,17 +1,4 @@
-
- const arrowLeft = document.querySelector(".arrow_left");
- const arrowRight = document.querySelector(".arrow_right");
-
-
- arrowLeft.addEventListener("click", function() {
-	alert('bonjour gauche')
- });
-
- arrowRight.addEventListener("click", function() {
-	alert('bonjour droite')
- });
-
- const slides =
+ const slides = 
 
 [
 	{
@@ -31,4 +18,28 @@
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
+
+// les fleches droite et gauche 
+
+const arrowLeft = document.querySelector('.arrow_left');
+const arrowRight = document.querySelector('.arrow_right');
+
+
+ arrowLeft.addEventListener('click', function() {
+	alert('bonjour gauche')
+ });
+
+ arrowRight.addEventListener('click', function() {
+	alert('bonjour droite')
+ });
+
+// creation des boutons
+
+function createDots(){
+	let dot = document.createElement('div');
+	dot.classList.add('dot');
+	document.querySelector(".dots").appendChild(dot);
+}
+
+createDots();
 
