@@ -26,28 +26,30 @@ const arrowRight = document.querySelector('.arrow_right');
 
 
  arrowLeft.addEventListener('click', function() {
-	alert('bonjour gauche')
+	alert('gauche')
  });
 
  arrowRight.addEventListener('click', function() {
-	alert('bonjour droite')
+	alert('droite')
  });
 
-// creation des boutons
-
-//function createDots(){
-//	let dot = document.createElement('div');
-//	dot.classList.add('dot');
-//	document.querySelector(".dots").appendChild(dot);
-//}
-
-//createDots();
+// creation des points avec l'aide de for 
 
 for (let i = 0; i < slides.length; i ++) {
-	const dot = document.createElement('div');
+	let dot = document.createElement('div');
 	dot.classList.add('dot');
 	document.querySelector(".dots").appendChild(dot);
 }
+
+// creation du point qui selectionne
+
+let dotSelected = document.querySelector('.dot');
+dotSelected.classList.add("dot_selected");
+
+
+
+
+
 
 
 
