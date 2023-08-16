@@ -19,32 +19,50 @@
 	}
 ]
 
-// les fleches droite et gauche 
+// les fleches droite et gauche
 
+let positionTab = 0;
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
-
-
- arrowLeft.addEventListener('click', function() {
-	alert('gauche')
- });
-
- arrowRight.addEventListener('click', function() {
-	alert('droite')
- });
-
-// creation des points avec l'aide de for 
-
 for (let i = 0; i < slides.length; i ++) {
 	let dot = document.createElement('div');
 	dot.classList.add('dot');
-	document.querySelector(".dots").appendChild(dot);
+	document.querySelector('.dots').appendChild(dot);
+	console.log(positionTab);
+
 }
-
-// creation du point qui selectionne
-
 let dotSelected = document.querySelector('.dot');
 dotSelected.classList.add("dot_selected");
+
+ arrowLeft.addEventListener('click', function() {
+	const dots = document.querySelectorAll('.dot')
+	dots[positionTab].classList.remove('dot_selected');
+	positionTab = positionTab-1;
+	changeImage(positionTab);
+	dots[positionTab].classList.add('dot_selected');
+ });
+
+ arrowRight.addEventListener('click', function() {
+	const dots = document.querySelectorAll('.dot')
+	dots[positionTab].classList.remove('dot_selected');
+	positionTab = positionTab+1;
+	changeImage(positionTab);
+	dots[positionTab].classList.add('dot_selected');
+ });
+
+
+// ajout des images 
+
+function changeImage(index) {
+	document.querySelector('.banner-img').src = './assets/images/slideshow/' + slides[index].image;
+	document.querySelector('#banner p').innerHTML = slides[index].tagLine;
+}
+
+
+
+
+
+
 
 
 
