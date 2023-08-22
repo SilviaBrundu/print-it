@@ -1,4 +1,4 @@
- const slides = // creation tableau dans variable slides
+ const slides = //creation tableau dans variable slides
 
 [
 	{
@@ -25,43 +25,38 @@ const arrowRight = document.querySelector('.arrow_right');
 
 // ma boucle "for"
 
-for (let i = 0; i < slides.length; i ++) {	// Pour chaque image, création dot dans ma div dots
-	let dot = document.createElement('div');	// creation de l'element div
-	dot.classList.add('dot');	//creation de la classe dot dans la variable dot
-	document.querySelector('.dots').appendChild(dot);	// creation de la classe dot dans ma div dots
+for (let i = 0; i < slides.length; i ++) {	//Pour chaque image, création dot dans ma div dots
+	let dot = document.createElement('div');  //creation de l'element div
+	dot.classList.add('dot');  //creation de la classe dot dans la variable dot
+	document.querySelector('.dots').appendChild(dot);  //creation de la classe dot dans ma div dots
 }
 
 let dotSelected = document.querySelector('.dot'); 
-dotSelected.classList.add("dot_selected");
+dotSelected.classList.add('dot_selected');
 
- arrowLeft.addEventListener('click', function() { //evenement au click avec addEventListener
-
-	const dots = document.querySelectorAll('.dot');	// variable qui contient toutes les div dot
-	dots[positionTab].classList.remove('dot_selected');	// Enlève la classe de dot_selected grace a remove
-	positionTab = positionTab-1;	//recule de 1 a chaque click sur la fleche gauche
+function handleEvent(direction) {
+	const dots = document.querySelectorAll('.dot');	 //variable qui contient toutes les div dot
+	dots[positionTab].classList.remove('dot_selected');	//Enlève la classe de dot_selected grace a remove
+	if (direction === 'left') {
+		positionTab = positionTab -1
+	} else {positionTab = positionTab +1}
 	infinitySlides();
 	changeImage(positionTab);	//change image en prenant en parametre la position
-	dots[positionTab].classList.add('dot_selected');  // permet de placer la class dot_selected au cotes de la classe dot en fonction de sa position
- });
-
- arrowRight.addEventListener('click', function() {	
-
-	const dots = document.querySelectorAll('.dot');	
-	dots[positionTab].classList.remove('dot_selected');	
-	positionTab = positionTab+1;	//avance de 1 a chaque click sur la fleche droite
-	infinitySlides();
-	changeImage(positionTab);	
-	dots[positionTab].classList.add('dot_selected'); 
+	dots[positionTab].classList.add('dot_selected');  //permet de placer la class dot_selected au cotes de la classe dot en fonction de sa position
+}
+	
+arrowLeft.addEventListener('click', function() { //evenement au click avec addEventListener
+	return handleEvent('left');
 });
 
-// toute mes fonctions
+arrowRight.addEventListener('click', function() {	
+	return handleEvent('right');
+});
 
 function infinitySlides() {
-	if (positionTab < 0) {	// si ma position est inferieur a zero
-		positionTab = slides.length - 1;  //ma position est egale au nombre de slides -1
-	}
-
-	else if ( positionTab >= slides.length ) {	//si ma position et superieur ou egale au nombre de slide
+	if (positionTab < 0) {  //si ma position est inferieur a zero
+		positionTab = slides.length -1;  //ma position est egale au nombre de slides -1
+	} else if (positionTab >= slides.length) {  //si ma position et superieur ou egale au nombre de slide
 		positionTab = 0;  //je rebascule sur la premiere image
 	}
 };
